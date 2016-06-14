@@ -61,9 +61,21 @@
                                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cN-j2-55o">
                                     <rect key="frame" x="0.0" y="149" width="600" height="149"/>
                                     <items>
-                                        <barButtonItem title="Comment" id="hVV-1s-XLM"/>
-                                        <barButtonItem title="Share" id="xcJ-cU-FC3"/>
-                                        <barButtonItem title="Follow Post" id="1rp-4o-E55"/>
+                                        <barButtonItem title="Comment" id="hVV-1s-XLM">
+                                            <connections>
+                                                <action selector="commentButton:" destination="B5S-AY-U8C" id="uoT-GJ-Gks"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Share" id="xcJ-cU-FC3">
+                                            <connections>
+                                                <action selector="shareButton:" destination="B5S-AY-U8C" id="MbQ-w2-eJV"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem title="Follow Post" id="1rp-4o-E55">
+                                            <connections>
+                                                <action selector="followButton:" destination="B5S-AY-U8C" id="ESU-N4-AjO"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </items>
                                 </toolbar>
                             </subviews>

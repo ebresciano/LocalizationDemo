@@ -66,14 +66,24 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         
     }
     
-    func updateSearchResultsforSearchController() {
-       guard let searchTerm = searchController.searchBar.text?,
-        let posts = fetchedResultsController?.fetchedObjects as? [Post] else {
-            return
-            
-            SearchResultsTableViewController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
-            SearchResultsTableViewController.tableView.reloadData()
+//    func updateSearchResultsforSearchController() {
+//        guard let searchTerm = searchController?.searchBar.text,
+//            let posts = fetchedResultsController?.fetchedObjects as? [Post] else {
+//                return
+//        }
+//        SearchResultsTableViewController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
+//        SearchResultsTableViewController.tableView.reloadData()
+//    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        guard let searchResultsController = searchController.searchResultsController as? SearchResultsTableViewController,
+            let searchTerm = searchController.searchBar.text,
+            let posts = fetchedResultsController?.fetchedObjects as? [Post] else {
+                return
         }
+        
+        searchResultsController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
+        searchResultsController.tableView.reloadData()
         
     }
     

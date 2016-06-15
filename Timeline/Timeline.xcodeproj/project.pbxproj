@@ -27,6 +27,7 @@
 		CCF567FA1D0F8BF900177C8A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */; };
 		CCF5685E1D10AF4200177C8A /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */; };
 		CCF568601D10D0C000177C8A /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */; };
+		CCF568801D11BA6A00177C8A /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5687F1D11BA6A00177C8A /* CloudKitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
 		CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
+		CCF5687F1D11BA6A00177C8A /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF567C51D0F6B2F00177C8A /* AppDelegate.swift */,
+				CCF5687F1D11BA6A00177C8A /* CloudKitManager.swift */,
 				CCF567EC1D0F738D00177C8A /* CoreDataModel.xcdatamodeld */,
 				CCF567F31D0F80A300177C8A /* Comment+CoreDataProperties.swift */,
 				CCF567F41D0F80A300177C8A /* SyncableObject+CoreDataProperties.swift */,
@@ -213,6 +216,7 @@
 				CCF567EE1D0F738D00177C8A /* CoreDataModel.xcdatamodeld in Sources */,
 				CCF567F71D0F80A300177C8A /* SyncableObject+CoreDataProperties.swift in Sources */,
 				CCF567F01D0F73AC00177C8A /* Stack.swift in Sources */,
+				CCF568801D11BA6A00177C8A /* CloudKitManager.swift in Sources */,
 				CCF567E51D0F711800177C8A /* Comment.swift in Sources */,
 				CCF567F21D0F7E5E00177C8A /* SyncableObject.swift in Sources */,
 				CCF5685E1D10AF4200177C8A /* SearchableRecord.swift in Sources */,

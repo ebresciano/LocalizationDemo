@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPostTableViewController: UITableViewController {
+class AddPostTableViewController: UITableViewController, UIImagePickerControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,9 @@ class AddPostTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

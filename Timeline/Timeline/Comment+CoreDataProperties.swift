@@ -13,11 +13,8 @@ import Foundation
 import CoreData
 
 extension Comment {
-
-    @NSManaged var recordIDData: NSData?
-    @NSManaged var recordName: String?
+    
     @NSManaged var text: String?
-    @NSManaged var timestamp: NSDate?
-    @NSManaged var post: NSManagedObject?
-
+    @NSManaged var post: Post?
+    
 }

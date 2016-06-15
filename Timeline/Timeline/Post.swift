@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreData
+import UIKit
 
-class Post {
+class Post: SyncableObject, SearchableRecord {
     
     static let kType = "Post"
     static let kPhotoData = "photoData"
@@ -26,4 +27,24 @@ class Post {
         self.timestamp = timestamp
         
     }
+    
+    var photo: UIImage? {
+        
+        guard let photoData = self.photoData else {
+            return nil
+        }
+        
+        return UIImage(data: photoData)
+    }
+    
+    func matchesSearchTerm(searchTerm: String) -> Bool {
+        
+        return (self.comment?.array as? [Comment])?.filter({$0.matchesSearchTerm(searchTerm)}).count < 0
+    }
+    
+    
 }
+
+
+
+

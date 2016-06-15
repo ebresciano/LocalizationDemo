@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Comment {
+class Comment: SyncableObject, SearchableRecord {
     
     static let kType = "Comment"
     static let kText = "text"
@@ -20,13 +20,18 @@ class Comment {
         
         guard let entity = NSEntityDescription.entityForName(Comment.kType, inManagedObjectContext: context) else { fatalError() }
         
-        self.init?(entity: entity, insertIntoManagedObjectContext: context)
+        self.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.text = text
-        self.timestamp = timestamp
+        //self.timestamp = timestamp
         self.post = post
-
-        
     }
+    
+    func matchesSearchTerm(searchTerm: String) -> Bool {
+        
+        return text?.containsString(searchTerm) ?? false
+    }
+    
+
     
 }

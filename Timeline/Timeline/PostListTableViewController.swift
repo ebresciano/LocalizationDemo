@@ -9,16 +9,16 @@
 import UIKit
 import CoreData
 
-class PostListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-
+class PostListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
+    
     var fetchedResultsController: NSFetchedResultsController?
+    
+    var searchController: UISearchController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpFetchedResultsController()
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,11 +58,29 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         fetchedResultsController?.delegate = self
     }
     
+    func setUpSearchController() {
+        let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchResultsTableViewController")
+        searchController?.searchResultsUpdater = self
+        searchController = UISearchController(searchResultsController: resultsController)
+        tableView.tableHeaderView = searchController?.searchBar
+        
+    }
+    
+    func updateSearchResultsforSearchController() {
+       guard let searchTerm = searchController.searchBar.text?,
+        let posts = fetchedResultsController?.fetchedObjects as? [Post] else {
+            return
+            
+            SearchResultsTableViewController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
+            SearchResultsTableViewController.tableView.reloadData()
+        }
+        
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("postTableViewCell", forIndexPath: indexPath)  as? PostTableViewCell,
-        let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {
-            return PostTableViewCell()
+            let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post else {
+                return PostTableViewCell()
         }
         
         cell.updateWithPost(post)
@@ -71,12 +89,12 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     
-     // MARK: - Navigation
-     
+    // MARK: - Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toDetailSegue" {
             if let PostDetailTableViewController = segue.destinationViewController as? PostDetailTableViewController,
-            let indexPath = self.tableView.indexPathForSelectedRow,
+                let indexPath = self.tableView.indexPathForSelectedRow,
                 let post = fetchedResultsController?.objectAtIndexPath(indexPath) as? Post {
                 
                 PostDetailTableViewController.post = post

@@ -23,9 +23,8 @@ class PostTableViewCell: UITableViewCell {
     
    func updateWithPost(post: Post) {
     
-    imageView.image = post.photo
-        
-
+    imageView?.image = post.photo
+    
     }
 
 }

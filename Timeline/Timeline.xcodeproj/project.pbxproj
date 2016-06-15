@@ -25,6 +25,8 @@
 		CCF567F71D0F80A300177C8A /* SyncableObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567F41D0F80A300177C8A /* SyncableObject+CoreDataProperties.swift */; };
 		CCF567F81D0F80A300177C8A /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567F51D0F80A300177C8A /* Post+CoreDataProperties.swift */; };
 		CCF567FA1D0F8BF900177C8A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */; };
+		CCF5685E1D10AF4200177C8A /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */; };
+		CCF568601D10D0C000177C8A /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		CCF567F41D0F80A300177C8A /* SyncableObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SyncableObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCF567F51D0F80A300177C8A /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
+		CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF567D91D0F6D3A00177C8A /* PostListTableViewController.swift */,
+				CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */,
 				CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */,
 				CCF567DB1D0F6E1300177C8A /* PostDetailTableViewController.swift */,
 				CCF567DD1D0F6ED900177C8A /* AddPostTableViewController.swift */,
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF567E71D0F714700177C8A /* PostController.swift */,
+				CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */,
 			);
 			name = "MODEL CONTROLLER";
 			sourceTree = "<group>";
@@ -209,11 +215,13 @@
 				CCF567F01D0F73AC00177C8A /* Stack.swift in Sources */,
 				CCF567E51D0F711800177C8A /* Comment.swift in Sources */,
 				CCF567F21D0F7E5E00177C8A /* SyncableObject.swift in Sources */,
+				CCF5685E1D10AF4200177C8A /* SearchableRecord.swift in Sources */,
 				CCF567E31D0F710500177C8A /* Post.swift in Sources */,
 				CCF567DE1D0F6ED900177C8A /* AddPostTableViewController.swift in Sources */,
 				CCF567F81D0F80A300177C8A /* Post+CoreDataProperties.swift in Sources */,
 				CCF567F61D0F80A300177C8A /* Comment+CoreDataProperties.swift in Sources */,
 				CCF567DC1D0F6E1300177C8A /* PostDetailTableViewController.swift in Sources */,
+				CCF568601D10D0C000177C8A /* PhotoSelectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +373,7 @@
 				CCF567D61D0F6B2F00177C8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

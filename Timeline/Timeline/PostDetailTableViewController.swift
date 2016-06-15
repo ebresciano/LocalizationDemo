@@ -33,7 +33,8 @@ class PostDetailTableViewController: UITableViewController {
     func presentCommentAlert() {
         let alertController = UIAlertController(title: "Add Comment", message: nil, preferredStyle: .Alert)
     
-        alertController.addTextFieldWithConfigurationHandler {
+        alertController.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = " "
         }
         let addCommentAction = UIAlertAction(title: "Add Comment", style: .Default) { (action) in
             
@@ -81,8 +82,12 @@ class PostDetailTableViewController: UITableViewController {
             if let comment = fetchedResultsController?.objectAtIndexPath(indexPath) as? Comment {
                 
                 cell.textLabel?.text = comment.text
-                return cell
+                //cell.detailTextLabel?.text = comment.recordName
+                
             }
-        }
+            
+            return cell
+    }
+        
         
 }

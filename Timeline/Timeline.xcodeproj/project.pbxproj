@@ -26,7 +26,6 @@
 		CCF567F81D0F80A300177C8A /* Post+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567F51D0F80A300177C8A /* Post+CoreDataProperties.swift */; };
 		CCF567FA1D0F8BF900177C8A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */; };
 		CCF5685E1D10AF4200177C8A /* SearchableRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */; };
-		CCF568601D10D0C000177C8A /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */; };
 		CCF568801D11BA6A00177C8A /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5687F1D11BA6A00177C8A /* CloudKitManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +51,6 @@
 		CCF567F51D0F80A300177C8A /* Post+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Post+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableRecord.swift; sourceTree = "<group>"; };
-		CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 		CCF5687F1D11BA6A00177C8A /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				CCF567D91D0F6D3A00177C8A /* PostListTableViewController.swift */,
-				CCF5685F1D10D0C000177C8A /* PhotoSelectorViewController.swift */,
 				CCF567F91D0F8BF900177C8A /* PostTableViewCell.swift */,
 				CCF567DB1D0F6E1300177C8A /* PostDetailTableViewController.swift */,
 				CCF567DD1D0F6ED900177C8A /* AddPostTableViewController.swift */,
@@ -225,7 +222,6 @@
 				CCF567F81D0F80A300177C8A /* Post+CoreDataProperties.swift in Sources */,
 				CCF567F61D0F80A300177C8A /* Comment+CoreDataProperties.swift in Sources */,
 				CCF567DC1D0F6E1300177C8A /* PostDetailTableViewController.swift in Sources */,
-				CCF568601D10D0C000177C8A /* PhotoSelectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

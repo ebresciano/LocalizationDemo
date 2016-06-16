@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class PostListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchResultsUpdating {
+class PostListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,
+
+    UISearchResultsUpdating {
     
     var fetchedResultsController: NSFetchedResultsController?
     
@@ -19,6 +21,7 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         super.viewDidLoad()
         
         setUpFetchedResultsController()
+        setUpSearchController()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,17 +66,7 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         searchController?.searchResultsUpdater = self
         searchController = UISearchController(searchResultsController: resultsController)
         tableView.tableHeaderView = searchController?.searchBar
-        
     }
-    
-//    func updateSearchResultsforSearchController() {
-//        guard let searchTerm = searchController?.searchBar.text,
-//            let posts = fetchedResultsController?.fetchedObjects as? [Post] else {
-//                return
-//        }
-//        SearchResultsTableViewController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
-//        SearchResultsTableViewController.tableView.reloadData()
-//    }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard let searchResultsController = searchController.searchResultsController as? SearchResultsTableViewController,
@@ -84,7 +77,6 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         
         searchResultsController.resultsArray = posts.filter({$0.matchesSearchTerm(searchTerm)})
         searchResultsController.tableView.reloadData()
-        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -97,7 +89,6 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         
         return cell
     }
-    
     
     // MARK: - Navigation
     

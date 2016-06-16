@@ -26,6 +26,8 @@ class Post: SyncableObject, SearchableRecord {
         
         self.timestamp = timestamp
         
+        self.recordName = NSUUID().UUIDString
+        
     }
     
     var photo: UIImage? {

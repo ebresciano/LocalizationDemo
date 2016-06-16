@@ -34,7 +34,7 @@ class PostController {
     
     func addCommentToPost(text: String, post: Post, completion: ((success: Bool) -> Void)?) {
         
-        let comment = Comment(post: post, text: text)
+        _ = Comment(post: post, text: text)
         
         saveContext()
     

@@ -23,8 +23,9 @@ class Comment: SyncableObject, SearchableRecord {
         self.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.text = text
-        //self.timestamp = timestamp
+        self.timestamp = timestamp
         self.post = post
+        self.recordName = NSUUID().UUIDString
     }
     
     func matchesSearchTerm(searchTerm: String) -> Bool {

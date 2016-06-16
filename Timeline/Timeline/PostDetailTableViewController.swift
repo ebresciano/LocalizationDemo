@@ -13,6 +13,8 @@ class PostDetailTableViewController: UITableViewController {
     
     var post: Post?
     
+    var comments: [Comment] = []
+    
     var fetchedResultsController: NSFetchedResultsController?
     
     @IBOutlet weak var imageView: UIImageView!
@@ -59,6 +61,7 @@ class PostDetailTableViewController: UITableViewController {
         }
         
         @IBAction func shareButton(sender: AnyObject) {
+            presentActivityViewController()
         }
         
         @IBAction func followButton(sender: AnyObject) {
@@ -81,12 +84,22 @@ class PostDetailTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("postDetailCell", forIndexPath: indexPath)
             if let comment = fetchedResultsController?.objectAtIndexPath(indexPath) as? Comment {
                 
-                cell.textLabel?.text = comment.text
-                //cell.detailTextLabel?.text = comment.recordName
+              cell.textLabel?.text = comment.text
+              cell.detailTextLabel?.text = comment.recordName
                 
             }
             
             return cell
+    }
+    
+    func presentActivityViewController() {
+        
+        guard let photo = post?.photo,
+            let comment = post?.comment?.firstObject as? Comment,
+            let text = comment.text else { return }
+        
+        let activityViewController = UIActivityViewController(activityItems: [photo, text], applicationActivities: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
     }
         
         

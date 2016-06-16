@@ -66,9 +66,7 @@ class PhotoSelectorViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
-    @IBAction func addPostButtonTapped(sender: AnyObject) {
-    }
-}
+   }
 
 protocol PhotoSelectorViewControllerDelegate: class {
     

@@ -16,12 +16,12 @@ class SearchResultsTableViewController: UITableViewController {
         super.viewDidLoad()
 
     }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return resultsArray.count 
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
          guard let cell = tableView.dequeueReusableCellWithIdentifier("resultsCell", forIndexPath: indexPath) as? PostTableViewCell,
         let result = resultsArray[indexPath.row] as? Post else { return UITableViewCell() }
@@ -32,7 +32,7 @@ class SearchResultsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        // TODO: Finish Segue
-
+        self.presentingViewController?.performSegueWithIdentifier("toPostDetailFromSearch", sender: cell)
     }
+
 }

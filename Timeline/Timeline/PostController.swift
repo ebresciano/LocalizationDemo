@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreData
+
 
 class PostController {
     
@@ -37,7 +39,23 @@ class PostController {
         _ = Comment(post: post, text: text)
         
         saveContext()
+    }
     
+    // MARK: - Helper Functions
+    
+    func postWithName(name: String) -> Post? {
+        if name.isEmpty {
+            return nil
+        }
+        
+        let fetchRequest = NSFetchRequest(entityName: Post.kType)
+        let predicate = NSPredicate(format: "recordName == %@", argumentArray: [name])
+        fetchRequest.predicate = predicate
+        
+        let result = (try? Stack.sharedStack.managedObjectContext.executeFetchRequest(fetchRequest)) as? [Post] ?? nil
+        
+        return result?.first 
+        
     }
 }
     

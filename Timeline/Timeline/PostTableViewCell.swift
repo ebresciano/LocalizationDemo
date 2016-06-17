@@ -10,6 +10,8 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var postImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,7 +25,7 @@ class PostTableViewCell: UITableViewCell {
     
    func updateWithPost(post: Post) {
     
-    imageView?.image = post.photo
+    postImageView.image = post.photo
     
     }
 

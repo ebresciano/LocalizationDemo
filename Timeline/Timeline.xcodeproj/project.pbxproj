@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCD5F5A81D137FA9004D4F5F /* CloudKitManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5F5A71D137FA9004D4F5F /* CloudKitManagedObject.swift */; };
 		CCF567C61D0F6B2F00177C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567C51D0F6B2F00177C8A /* AppDelegate.swift */; };
 		CCF567CB1D0F6B2F00177C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF567C91D0F6B2F00177C8A /* Main.storyboard */; };
 		CCF567CD1D0F6B2F00177C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF567CC1D0F6B2F00177C8A /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CCD5F5A71D137FA9004D4F5F /* CloudKitManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManagedObject.swift; sourceTree = "<group>"; };
 		CCF567C21D0F6B2F00177C8A /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF567C51D0F6B2F00177C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF567CA1D0F6B2F00177C8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CCD5F5A91D137FB3004D4F5F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */,
+				CCD5F5A71D137FA9004D4F5F /* CloudKitManagedObject.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		CCF567B91D0F6B2E00177C8A = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF567E71D0F714700177C8A /* PostController.swift */,
-				CCF5685D1D10AF4200177C8A /* SearchableRecord.swift */,
+				CCD5F5A91D137FB3004D4F5F /* Protocols */,
 			);
 			name = "MODEL CONTROLLER";
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 				CCF567F21D0F7E5E00177C8A /* SyncableObject.swift in Sources */,
 				CCF5685E1D10AF4200177C8A /* SearchableRecord.swift in Sources */,
 				CCF567E31D0F710500177C8A /* Post.swift in Sources */,
+				CCD5F5A81D137FA9004D4F5F /* CloudKitManagedObject.swift in Sources */,
 				CCF567DE1D0F6ED900177C8A /* AddPostTableViewController.swift in Sources */,
 				CCF567F81D0F80A300177C8A /* Post+CoreDataProperties.swift in Sources */,
 				CCF567F61D0F80A300177C8A /* Comment+CoreDataProperties.swift in Sources */,

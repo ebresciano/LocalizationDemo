@@ -14,17 +14,21 @@ class SearchResultsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(resultsArray)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print(resultsArray.count)
         return resultsArray.count 
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print(resultsArray)
          guard let cell = tableView.dequeueReusableCellWithIdentifier("resultsCell", forIndexPath: indexPath) as? PostTableViewCell,
-        let result = resultsArray[indexPath.row] as? Post else { return UITableViewCell() }
+        let result = resultsArray[indexPath.row] as? Post else {
+            return UITableViewCell()
+        }
         cell.updateWithPost(result)
         
         return cell

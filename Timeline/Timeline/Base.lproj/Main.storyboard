@@ -14,14 +14,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postTableViewCell" rowHeight="171" id="yfh-S0-seL" customClass="PostTableViewCell" customModule="Timeline" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postTableViewCell" focusStyle="custom" rowHeight="171" id="yfh-S0-seL" customClass="PostTableViewCell" customModule="Timeline" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="171"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfh-S0-seL" id="Moq-dH-0Gl">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="170.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-1p-meI">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="170.5"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="sIi-1p-meI" secondAttribute="trailing" id="2zi-xU-Wen"/>
+                                        <constraint firstItem="sIi-1p-meI" firstAttribute="top" secondItem="Moq-dH-0Gl" secondAttribute="top" id="GYA-DO-xg0"/>
+                                        <constraint firstItem="sIi-1p-meI" firstAttribute="leading" secondItem="Moq-dH-0Gl" secondAttribute="leading" id="gyd-p6-e31"/>
+                                        <constraint firstAttribute="bottom" secondItem="sIi-1p-meI" secondAttribute="bottom" id="uVh-gr-C7T"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="postImageView" destination="sIi-1p-meI" id="83b-fV-nrl"/>
                                     <segue destination="B5S-AY-U8C" kind="show" identifier="toDetailSegue" id="Zxe-9I-7B2"/>
                                 </connections>
                             </tableViewCell>
@@ -54,32 +66,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" id="D0G-av-mhV">
-                            <rect key="frame" x="0.0" y="64" width="600" height="415"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="DLG-fd-L01">
+                            <rect key="frame" x="0.0" y="64" width="600" height="370"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="olk-7L-gX6">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="366"/>
-                                </imageView>
-                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tKZ-zK-WMj">
-                                    <rect key="frame" x="0.0" y="366" width="600" height="49"/>
-                                    <items>
-                                        <barButtonItem title="Comment" width="176" id="CwI-bI-IgN"/>
-                                        <barButtonItem title="Share" width="190" id="oJT-Qh-k24"/>
-                                        <barButtonItem title="Follow" width="186" id="Ajm-vK-Iba"/>
-                                    </items>
-                                </toolbar>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Xyv-fW-a2N">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="370"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvX-Hi-fQl">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="326"/>
+                                        </imageView>
+                                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJG-yN-M7U">
+                                            <rect key="frame" x="0.0" y="326" width="600" height="44"/>
+                                            <items>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="SvS-NP-FG1"/>
+                                                <barButtonItem title="Comment" id="4P4-gT-4vx">
+                                                    <connections>
+                                                        <action selector="commentButton:" destination="B5S-AY-U8C" id="gRC-jy-zfB"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="g25-XR-gKb"/>
+                                                <barButtonItem title="Share" id="Drk-gu-CVo">
+                                                    <connections>
+                                                        <action selector="shareButton:" destination="B5S-AY-U8C" id="CZ3-cP-zF4"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="A16-XJ-9I2"/>
+                                                <barButtonItem title="Follow" id="ySE-MP-SZY">
+                                                    <connections>
+                                                        <action selector="followButton:" destination="B5S-AY-U8C" id="wWX-dH-7p3"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem style="plain" systemItem="flexibleSpace" id="a1H-Og-IX6"/>
+                                            </items>
+                                        </toolbar>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gJG-yN-M7U" secondAttribute="trailing" id="0JD-zD-5uM"/>
+                                        <constraint firstItem="gJG-yN-M7U" firstAttribute="leading" secondItem="Xyv-fW-a2N" secondAttribute="leading" id="1W3-Et-oWT"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="olk-7L-gX6" firstAttribute="leading" secondItem="D0G-av-mhV" secondAttribute="leading" id="bdK-ft-dN6"/>
-                                <constraint firstAttribute="trailing" secondItem="olk-7L-gX6" secondAttribute="trailing" id="cgM-Wg-ZNP"/>
-                                <constraint firstItem="olk-7L-gX6" firstAttribute="top" secondItem="D0G-av-mhV" secondAttribute="top" id="ksl-XY-VLA"/>
-                                <constraint firstItem="tKZ-zK-WMj" firstAttribute="top" secondItem="olk-7L-gX6" secondAttribute="bottom" id="yir-Hv-KYD"/>
+                                <constraint firstItem="Xyv-fW-a2N" firstAttribute="leading" secondItem="DLG-fd-L01" secondAttribute="leading" id="0q8-nW-IMV"/>
+                                <constraint firstAttribute="bottom" secondItem="Xyv-fW-a2N" secondAttribute="bottom" id="GBk-1u-BlG"/>
+                                <constraint firstAttribute="trailing" secondItem="Xyv-fW-a2N" secondAttribute="trailing" id="Wwd-RW-tIz"/>
+                                <constraint firstItem="Xyv-fW-a2N" firstAttribute="top" secondItem="DLG-fd-L01" secondAttribute="top" id="jGf-5X-8tF"/>
                             </constraints>
-                        </stackView>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="169" id="dhY-ab-2qK">
-                                <rect key="frame" x="0.0" y="507" width="600" height="169"/>
+                                <rect key="frame" x="0.0" y="462" width="600" height="169"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhY-ab-2qK" id="Uvj-Uq-9rc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="168.5"/>
@@ -94,15 +132,6 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pbr-r7-tHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="rPx-DF-TLF">
-                    <rect key="frame" x="0.0" y="0.0" width="584" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <barButtonItem title="Comment" width="252" id="X8K-hp-VnJ"/>
-                        <barButtonItem title="Share" id="KDq-qP-W1m"/>
-                        <barButtonItem title="Follow" width="253" id="bUS-2s-RhF"/>
-                    </items>
-                </toolbar>
             </objects>
             <point key="canvasLocation" x="3204" y="355"/>
         </scene>
@@ -110,18 +139,32 @@
         <scene sceneID="16d-3v-fRo">
             <objects>
                 <tableViewController storyboardIdentifier="SearchResultsTableViewController" id="2wV-6D-wHn" customClass="SearchResultsTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gaG-FB-MTO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="273" sectionHeaderHeight="28" sectionFooterHeight="28" id="gaG-FB-MTO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultsCell" id="fxZ-TT-Ced">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultsCell" rowHeight="273" id="fxZ-TT-Ced" customClass="PostTableViewCell" customModule="Timeline" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="273"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxZ-TT-Ced" id="7x1-Mn-7hC">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="272.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qYF-al-4VY">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="272.5"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qYF-al-4VY" secondAttribute="trailing" id="4SQ-T1-cmb"/>
+                                        <constraint firstItem="qYF-al-4VY" firstAttribute="top" secondItem="7x1-Mn-7hC" secondAttribute="top" id="LpG-CG-oFb"/>
+                                        <constraint firstAttribute="bottom" secondItem="qYF-al-4VY" secondAttribute="bottom" id="csk-1D-vTX"/>
+                                        <constraint firstItem="qYF-al-4VY" firstAttribute="leading" secondItem="7x1-Mn-7hC" secondAttribute="leading" id="uaJ-wP-K2I"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postImageView" destination="qYF-al-4VY" id="L9h-hA-uSf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

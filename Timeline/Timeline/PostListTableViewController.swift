@@ -9,9 +9,7 @@
 import UIKit
 import CoreData
 
-class PostListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,
-
-    UISearchResultsUpdating {
+class PostListTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,UISearchResultsUpdating, UINavigationControllerDelegate {
     
     var fetchedResultsController: NSFetchedResultsController?
     
@@ -63,14 +61,14 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
     
     func setUpSearchController() {
         let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SearchResultsTableViewController")
-        searchController?.searchResultsUpdater = self
         searchController = UISearchController(searchResultsController: resultsController)
+        searchController?.searchResultsUpdater = self
         tableView.tableHeaderView = searchController?.searchBar
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         guard let searchResultsController = searchController.searchResultsController as? SearchResultsTableViewController,
-            let searchTerm = searchController.searchBar.text,
+            let searchTerm = searchController.searchBar.text?.lowercaseString,
             let posts = fetchedResultsController?.fetchedObjects as? [Post] else {
                 return
         }

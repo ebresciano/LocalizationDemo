@@ -11,7 +11,7 @@ import CoreData
 import UIKit
 import CloudKit
 
-class Post: SyncableObject, SearchableRecord, CloudkitManagedObject {
+class Post: SyncableObject, SearchableRecord, CloudKitManagedObject {
     
     static let kType = "Post"
     static let kPhotoData = "photoData"

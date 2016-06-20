@@ -20,6 +20,7 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         
         setUpFetchedResultsController()
         setUpSearchController()
+        performFullSync()
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,6 +87,25 @@ class PostListTableViewController: UITableViewController, NSFetchedResultsContro
         cell.updateWithPost(post)
         
         return cell
+    }
+    
+    @IBAction func refreshControlActivated(sender: UIRefreshControl) {
+        
+        performFullSync {
+            sender.endRefreshing()
+        }
+    }
+    
+    func performFullSync(completion: (() -> Void)? = nil) {
+        
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        PostController.sharedController.performFullSync {
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
+            if let completion = completion {
+                completion()
+            }
+        }
     }
     
     // MARK: - Navigation

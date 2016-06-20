@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import CloudKit
 
-class Comment: SyncableObject, SearchableRecord, CloudkitManagedObject {
+class Comment: SyncableObject, SearchableRecord, CloudKitManagedObject {
     
     static let kType = "Comment"
     static let kText = "text"

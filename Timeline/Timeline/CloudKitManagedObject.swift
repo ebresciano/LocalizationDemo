@@ -10,7 +10,7 @@ import Foundation
 import CloudKit
 import CoreData
 
-@objc protocol CloudkitManagedObject {
+@objc protocol CloudKitManagedObject {
     
     var timestamp: NSDate {get set}
     var recordIDData: NSData? {get set}
@@ -22,7 +22,7 @@ import CoreData
     init?(record: CKRecord, context: NSManagedObjectContext)
 }
 
-extension CloudkitManagedObject {
+extension CloudKitManagedObject {
     
     var isSynced: Bool {
         return recordIDData != nil

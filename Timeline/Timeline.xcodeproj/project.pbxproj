@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC3BE7411D18988C009B6761 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC3BE7401D18988C009B6761 /* CloudKit.framework */; };
 		CCD5F5A81D137FA9004D4F5F /* CloudKitManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD5F5A71D137FA9004D4F5F /* CloudKitManagedObject.swift */; };
 		CCF567C61D0F6B2F00177C8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF567C51D0F6B2F00177C8A /* AppDelegate.swift */; };
 		CCF567CB1D0F6B2F00177C8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF567C91D0F6B2F00177C8A /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC3BE73F1D189876009B6761 /* Timeline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Timeline.entitlements; sourceTree = "<group>"; };
+		CC3BE7401D18988C009B6761 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CCD5F5A71D137FA9004D4F5F /* CloudKitManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManagedObject.swift; sourceTree = "<group>"; };
 		CCF567C21D0F6B2F00177C8A /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF567C51D0F6B2F00177C8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3BE7411D18988C009B6761 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 		CCF567B91D0F6B2E00177C8A = {
 			isa = PBXGroup;
 			children = (
+				CC3BE7401D18988C009B6761 /* CloudKit.framework */,
 				CCF567C41D0F6B2F00177C8A /* Timeline */,
 				CCF567C31D0F6B2F00177C8A /* Products */,
 			);
@@ -95,6 +100,7 @@
 		CCF567C41D0F6B2F00177C8A /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				CC3BE73F1D189876009B6761 /* Timeline.entitlements */,
 				CCF567C51D0F6B2F00177C8A /* AppDelegate.swift */,
 				CCF5687F1D11BA6A00177C8A /* CloudKitManager.swift */,
 				CCF567EC1D0F738D00177C8A /* CoreDataModel.xcdatamodeld */,
@@ -176,7 +182,12 @@
 				TargetAttributes = {
 					CCF567C11D0F6B2F00177C8A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = WP96JMRW5V;
+						DevelopmentTeam = 35L3J99R6J;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -348,9 +359,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Timeline/Timeline.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Timeline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example..Timeline;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ebresciano..Timeline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -359,9 +372,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Timeline/Timeline.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Timeline/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example..Timeline;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ebresciano..Timeline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

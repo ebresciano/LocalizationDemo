@@ -20,7 +20,6 @@ class CloudKitManager {
     
     init() {
         checkCloudKitAvailability()
-        requestDiscoverabilityPermission()
     }
     
     //MARK: User Info Discovery

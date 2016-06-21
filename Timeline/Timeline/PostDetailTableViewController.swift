@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CloudKit
 
 class PostDetailTableViewController: UITableViewController {
     
@@ -16,6 +17,8 @@ class PostDetailTableViewController: UITableViewController {
     var comments: [Comment] = []
     
     var fetchedResultsController: NSFetchedResultsController?
+    
+    @IBOutlet weak var followButton: UIBarButtonItem!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -30,6 +33,13 @@ class PostDetailTableViewController: UITableViewController {
     func updateWithPost(post: Post) {
         
         imageView.image = post.photo
+        
+        PostController.sharedController.checkSubscriptionToPostComments(post) { (subscribed) in
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.followButton.title = subscribed ? "Unfollow Post" : "Follow Post"
+            })
+        }
     }
     
     func presentCommentAlert() {
@@ -56,7 +66,6 @@ class PostDetailTableViewController: UITableViewController {
         // MARK: - Actions
         
         @IBAction func commentButton(sender: AnyObject) {
-            
             presentCommentAlert()
         }
         
@@ -65,6 +74,12 @@ class PostDetailTableViewController: UITableViewController {
         }
         
         @IBAction func followButton(sender: AnyObject) {
+            guard let post = post else { return }
+            
+            PostController.sharedController.togglePostCommentSubscription(post) { (success, isSubscribed, error) in
+                
+                self.updateWithPost(post)
+            }
         }
         // MARK: - Table view data source
         
@@ -85,7 +100,7 @@ class PostDetailTableViewController: UITableViewController {
             if let comment = fetchedResultsController?.objectAtIndexPath(indexPath) as? Comment {
                 
               cell.textLabel?.text = comment.text
-              cell.detailTextLabel?.text = comment.recordName
+               cell.detailTextLabel?.text = comment.recordName
                 
             }
             
@@ -101,6 +116,44 @@ class PostDetailTableViewController: UITableViewController {
         let activityViewController = UIActivityViewController(activityItems: [photo, text], applicationActivities: nil)
         presentViewController(activityViewController, animated: true, completion: nil)
     }
-        
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Delete:
+            guard let indexPath = indexPath else {return}
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        case .Insert:
+            guard let newIndexPath = newIndexPath else {return}
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+        case .Move:
+            guard let indexPath = indexPath,
+                newIndexPath = newIndexPath else {return}
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Automatic)
+        case .Update:
+            guard let indexPath = indexPath else {return}
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+        switch type {
+        case .Delete:
+            tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+        case .Insert:
+            tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
+        default:
+            break
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
+    }
+    
         
 }

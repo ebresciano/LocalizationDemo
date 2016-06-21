@@ -136,6 +136,10 @@
                             <outlet property="delegate" destination="B5S-AY-U8C" id="kxj-L2-RXn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="followButton" destination="ySE-MP-SZY" id="wQm-Er-Yzv"/>
+                        <outlet property="imageView" destination="HvX-Hi-fQl" id="ASe-Rw-ftE"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pbr-r7-tHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
